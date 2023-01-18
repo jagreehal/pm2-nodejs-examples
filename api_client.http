@@ -1,0 +1,15 @@
+### PM2 API
+
+GET http://localhost:5000/api
+
+### PM2 API BOOM SYNC
+
+GET http://localhost:5000/api/boom/sync
+
+### PM2 API BOOM ASYNC
+
+GET http://localhost:5000/api/boom/async
+
+### PM2 API EXIT
+
+GET http://localhost:5000/api/exit

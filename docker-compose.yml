@@ -1,0 +1,39 @@
+version: '3.9'
+
+services:
+  pm2_api:
+    build:
+      context: .
+      dockerfile: Dockerfile_PM2
+    volumes:
+      - ./dist:/usr/dist
+      - ./src/public:/usr/dist/public
+    ports:
+      - '5000:5000'
+    expose:
+      - 5000
+    environment:
+      HOST: '0.0.0.0'
+      PORT: 5000
+    depends_on:
+      - redis
+    networks:
+      - monitoring
+    mem_limit: 512m
+
+  redis:
+    image: 'redis:7-alpine'
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis:/data
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
+    driver: bridge
+
+volumes:
+  redis:
+    driver: local

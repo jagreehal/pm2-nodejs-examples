@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "name": "pm2_api",
+      "script": "dist/index.js",
+      "watch": ["dist"],
+      "watch_delay": 1000,
+      "instances": "max",
+      "exec_mode": "cluster",
+      "merge_logs": true,
+      "max_memory_restart": "105M"
+    }
+  ]
+}
